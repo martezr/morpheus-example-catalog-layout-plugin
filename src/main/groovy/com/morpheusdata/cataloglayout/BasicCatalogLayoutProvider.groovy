@@ -26,13 +26,19 @@ class BasicCatalogLayoutProvider extends AbstractCatalogItemLayoutProvider {
 	@Override
 	HTMLResponse renderTemplate(CatalogItemType catalogItemType, User user) {
 		ViewModel<CatalogItemType> model = new ViewModel<>()
-		println "Catalog Item: $catalogItemType"
-		
+
+        // Create a payload to pass to the HTML template		
 		def HashMap<String, String> catalogItemPayload = new HashMap<String, String>();
 
-		def webnonce = morpheus.getWebRequest().getNonceToken()
+        // Add the catalog item to the payload object
 		catalogItemPayload.put("catalogItem", catalogItemType)
+
+        // Fetch the web nonce to align with the content security policy (CSP)
+		// to enable the execution of the JavaScript script and add
+		// it to the payload object used by the HTML template
+		def webnonce = morpheus.getWebRequest().getNonceToken()
 		catalogItemPayload.put("webnonce",webnonce)
+		
 		model.object = catalogItemPayload
 		getRenderer().renderTemplate("hbs/basicCatalogItem", model)
 	}
