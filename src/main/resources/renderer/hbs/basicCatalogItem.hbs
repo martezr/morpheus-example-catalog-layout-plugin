@@ -1,0 +1,56 @@
+<link rel="stylesheet" type="text/css" href="{{asset "/styles.scss"}}">
+<div id="custom-catalog-content" class="page-content">
+	<div class="catalog-item-details">
+		<div id="custom-item-type-header" class="item-type-header">
+			<h1 id="custom-item-name" class="ellipsize" title="{{catalogItem.name}}">{{catalogItem.name}}</h1>
+			<div id="custom-item-desc" class="desc">{{catalogItem.description}}</div>
+		</div>
+		<div class="catalog-item-body break-container-sm">
+			{{#hasWiki}}
+				<div class="catalog-item-content wiki-content">
+					{{wiki}}
+				</div>
+			{{/hasWiki}}
+			<div class="catalog-item-configuration {{#hasWiki}}with-item-content{{/hasWiki}}">
+				{{#orderForm}}
+					<div class="automation-template">
+						<button class="button" id="automationclick" data-toggle="modal" data-target="#catalog-automation-modal">View automation examples</button>
+					</div>
+					<div class="actions text-right">
+						<button class="button" type="submit">Add to Order</button>
+						<input type="hidden" class="order-now" name="orderNow" value="false">
+						<button class="button order-now" type="submit">Order Now</button>
+					</div>
+				{{/orderForm}}
+			</div>
+		</div>
+	</div>
+<div class="modal fade" id="catalog-automation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true"><svg class="close-icon"><use xlink:href="/assets/icons.svg#close-window"></use></svg></span>
+			</button>
+			<h4 class="modal-title">Automation Examples</h4>
+		</div>
+      <div class="modal-body">
+       <div class="text-area break-container-md">
+					<p>Morpheus CLI code example</p>
+					<span class="action-button action-copy" title="Copy Output"></span>
+					<pre id="clicodeblock">morpheus catalog add-order -t 1 -O config.awsRegion="us-east-1"</pre>
+
+					<p>Morpheus REST API code example</p>
+					<span class="action-button action-copy" title="Copy Output"></span>
+					<pre id="apiblock"></pre>
+				</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script nonce="{{webnonce}}" src="{{asset "/automation-gen.js"}}" ></script>
