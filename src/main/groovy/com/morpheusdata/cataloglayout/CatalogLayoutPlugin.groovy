@@ -18,6 +18,8 @@ class CatalogLayoutPlugin extends Plugin {
 	void initialize() {
 		BasicCatalogLayoutProvider basicCatalogLayoutProvider = new BasicCatalogLayoutProvider(this, morpheus)
 		this.pluginProviders.put(basicCatalogLayoutProvider.code, basicCatalogLayoutProvider)
+		DbaasCatalogLayoutProvider dbaasCatalogLayoutProvider = new DbaasCatalogLayoutProvider(this, morpheus)
+		this.pluginProviders.put(dbaasCatalogLayoutProvider.code, dbaasCatalogLayoutProvider)
 		this.setName("Example Catalog Layout Plugin")
 		this.setDescription("Example plugin for customizing self-service catalog items")
 		this.setAuthor("Martez Reed")

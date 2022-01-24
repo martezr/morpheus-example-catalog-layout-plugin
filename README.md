@@ -26,7 +26,14 @@ src/assets/javascript/
 src/assets/stylesheets/
 ```
 
-Configure the .gitignore file to ignore the build/ directory which will appear after performing the first build. Project packages live within src/main/groovy and contain source files ending in .groovy. View resources are stored in the src/main/resources subfolder and vary depending on the view renderer of choice. Static assets, like icons or custom javascript, live within the src/assets folder. Consult the table below for key files, their purpose, and their locations. Example code and further discussion of relevant files is included in the following sections.
+Configure the `.gitignore` file to ignore the `build/` directory which will appear after performing the first build. Project packages live within `src/main/groovy` and contain source files ending in .groovy. View resources are stored in the `src/main/resources` subfolder and vary depending on the view renderer of choice. Static assets, like icons or custom javascript, live within the `src/assets` folder. Consult the table below for key files, their purpose, and their locations. Example code and further discussion of relevant files is included in the following sections.
+
+
+|File Name|Description|File Path|
+|---------|-----------|---------|
+|build.gradle|The Gradle build file|build.gradle|
+
+
 
 
 ## Creating the build.gradle File
