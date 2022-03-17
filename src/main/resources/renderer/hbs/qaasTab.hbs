@@ -1,0 +1,54 @@
+<ul class="view-type nav nav-pills nav-justified" >
+   <li role="presentation" class="active"><a href="#overview-tab" data-toggle="pill" role="tab">Overview</a></li>
+   <li role="presentation"><a href="#queues-tab" data-toggle="pill" role="tab">Queues</a></li>
+</ul>
+<div class="tab-content">
+   <div id="overview-tab" role="tabpanel" class="tab-pane active">
+      <div class="row">
+         <div class="col-sm-6">
+            <h2>Overview</h2>
+         </div>
+      </div>
+      <hr>
+      <div class="incident-stats">
+         <div class="stats-container big-stat-block">
+            <span class="stat-content">{{name}}</span>
+            <span class="stat-label">Name</span>
+         </div>
+         <div class="stats-container big-stat-block">
+            <span class="stat-content">{{numberOfQueues}}</span>
+            <span class="stat-label"># of Queues</span>
+         </div>
+         <div class="stats-container big-stat-block">
+            <span class="stat-content">{{tracing}}</span>
+            <span class="stat-label">Tracing</span>
+         </div>
+      </div>
+   </div>
+   <div id="queues-tab" role="tabpanel" class="tab-pane">
+      <div class="row">
+         <div class="col-sm-6">
+            <h2>Queues</h2>
+         </div>
+      </div>
+      <hr>
+	<table>
+		<thead>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Durable</th>
+		<th>Messages</th>
+		</thead>
+		<tbody>
+			{{#each queues}}
+				<tr>
+					<td>{{this.name}}</td>
+					<td>{{this.type}}</td>
+					<td>{{this.durable}}</td>
+					<td>{{this.messages}}</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+   </div>
+</div>

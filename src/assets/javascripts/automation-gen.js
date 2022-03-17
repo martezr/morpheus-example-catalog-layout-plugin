@@ -1,5 +1,13 @@
+// Update the order form submit action
+document.addEventListener('DOMContentLoaded', function() {
+  catalogId = document.body.attributes.getNamedItem("data-id").value
+  url = `/service-catalog/catalog/${catalogId}/add`
+  orderForm = document.getElementsByClassName("order-form")[0]
+  orderForm.action = url;
+});
+
 function automationExamples() {
-    // Fetch the catalog item option types/inputs
+  // Fetch the catalog item option types/inputs
     elements = document.querySelectorAll('[name^="config.customOptions"]')
     
     // Fetch the name of the catalog Item

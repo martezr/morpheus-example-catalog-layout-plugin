@@ -6,8 +6,8 @@
 <div id="custom-catalog-content" class="page-content">
 	<div class="catalog-item-details">
 		<div id="custom-item-type-header" class="item-type-header">
-			<h1 id="custom-item-name" class="ellipsize" title="{{catalogItem.name}}">Database Engine</h1>
-			<div id="custom-item-desc" class="desc">Select a database engine</div>
+			<h1 id="custom-item-name" class="ellipsize" title="{{catalogItem.name}}">Details</h1>
+			<div id="custom-item-desc" class="desc">{{catalogItem.description}}</div>
 		</div>
 		<div class="catalog-item-body break-container-sm">
 			{{#hasWiki}}
@@ -17,24 +17,15 @@
 			{{/hasWiki}}
 			<div class="catalog-item-configuration {{#hasWiki}}with-item-content{{/hasWiki}}">
 			<row>
+				<h2>Testing stuff out</h2>
+			</row>
+			<row>
 				<div class="grid">
   <label class="card">
-    <input name="plan" class="radio" type="radio">
+    <input name="plan" class="radio" type="radio" checked>
     
     <span class="plan-details">
-      <span class="plan-type">MySQL</span>
-      <span>At-least-once delivery, message ordering isn't preserved</span>
-		<ul>
-		  <li>At-least once delivery</li>
-		  <li>Best-effort ordering</li>
-		</ul>
-    </span>
-  </label>
-  <label class="card">
-    <input name="plan" class="radio" type="radio">
-    
-    <span class="plan-details">
-      <span class="plan-type">PostgreSQL</span>
+      <span class="plan-type">Standard</span>
       <span>At-least-once delivery, message ordering isn't preserved</span>
 		<ul>
 		  <li>At-least once delivery</li>
@@ -46,7 +37,7 @@
     <input name="plan" class="radio" type="radio">
     <span class="hidden-visually">Pro - $50 per month, 5 team members, 500 GB per month, 5 concurrent builds</span>
     <span class="plan-details" aria-hidden="true">
-      <span class="plan-type">MongoDB</span>
+      <span class="plan-type">FIFO</span>
       <span>First-in-first-out delivery, message ordering is preserved</span>
 		<ul>
 		  <li>First-in-first-out delivery</li>
